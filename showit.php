@@ -1,17 +1,19 @@
 <?php declare(strict_types=1); ?>
 <!DOCTYPE html><html><body>
+<script> function printImage() {window.print();} </script>
 <div>
   <?php echo "Title: " . $_POST["title"]; ?>
-  <?php echo " &nbsp  page: " . $_POST["pagenumb"]; ?><br>
-
+  <?php echo " &nbsp  page: " . $_POST["pagenumb"] . " &nbsp "; ?>
+  <button onclick="printImage()">Print</button>
   <form action="/showit.php" method="post" target="_self">
     <input type="hidden" name="title" value=<?php echo $_POST["title"];?> />
-    <button type="submit" formmethod="post"
-      name="pagenumb" value=<?php echo $_POST["pagenumb"] + 1;?>> Forward </button>
-    <button type="submit" formmethod="post"
-      name="pagenumb" value=<?php echo $_POST["pagenumb"];?>> Refresh </button>
-    <button type="submit" formmethod="post"
-      name="pagenumb"
+    <input type="hidden" name="cloudPortal" value=<?php echo $_POST["cloudPortal"];?> />
+    <input type="hidden" name="bucketName" value=<?php echo $_POST["bucketName"];?> />
+    <button type="submit" formmethod="post" name="pagenumb"
+      value=<?php echo $_POST["pagenumb"] + 1;?>> Forward </button>
+    <button type="submit" formmethod="post" name="pagenumb"
+      value=<?php echo $_POST["pagenumb"];?>> Refresh </button>
+    <button type="submit" formmethod="post" name="pagenumb"
       value=<?php echo (max(0, $_POST["pagenumb"] - 1));?>> Backwrd </button>
   </form>
 </div>
@@ -105,8 +107,10 @@ function zpad($what, $ln = 3) {
   return(sprintf($sPrintfStr, $what));
 }
 
-$filename = "http://storage.googleapis.com/xpoz/";
-$filename .= $_POST["title"] .= ".p";
+$filename = "http://";
+$filename .= $_POST["cloudPortal"]; // storage.googleapis.com/
+$filename .= $_POST["bucketName"];  // xpoz
+$filename .= "/" . $_POST["title"] . ".p";
 $filename .= zpad($_POST["pagenumb"], 3);
 readfile($filename);
 echo ('";
@@ -115,7 +119,6 @@ var bytes = atob(chars);
 var font = "20px Courier New";
 interp(bytes);
 </script>');
-echo ($filename);
-?>
-</body></html>
+//echo ($filename);
+?></body></html>
 
