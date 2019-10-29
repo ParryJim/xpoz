@@ -1,8 +1,9 @@
 #include "xpoz.h"
+#include <stdio.h>
 #include <math.h>
 
 void main() {
-    title("demo_page1");
+    title("demoooo");
     setx(16);
     line(32, 256);
     color(0x0000Ff);
@@ -14,7 +15,9 @@ void main() {
     writeln("Happy Boo.");
     //endl(); // new line
     write(" October's 'bout gone.");
-    view("demo_page1 sent");
+    //page(1);
+    view("page one");
+    printf("demo_page1 sent\n");
 
     color(GREEN);
     line(400, 276); //hline(400);
@@ -29,6 +32,7 @@ void main() {
     setxy(100, 100);
     boxGraphBi(gdata, BINS, 600,
                RED, BINS/3, GREEN);
-    title("demo_page2");
-    view("demo_page2 sent");
+    //page(2);
+    view("page two");
+    printf("demo_page2 sent\n");
 }
