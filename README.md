@@ -20,12 +20,11 @@ keep everything in the same directory that will work too but it is less
 flexible in terms of future uses.
 <br/>(3) Create a mount point named "xpoz" and attach the Google cloud bucket "xpoz" to it
 using gcsfuse.  (See https://cloud.google.com/storage/docs/gcs-fuse).  You can use
-instead a bucket that you own but you still must name the mount point "xpoz" or
-change the source code.
+instead a bucket that you own.
 <br/>(4) If you copy the demo program into your "scientific" directory then you can make it
 and use a browser to visit xpoz.org where you will see your graphic results.
 In your own scientific code #include "xpoz.h" and use some of the graphical commands
-including view() which outputs the display list to the bucket for the website to
+including view() or page() which will output the display list to the bucket for the website to
 interpret (e.g. http://xpoz.org).  The simple php code for the web page is
 available in this repository.
 
@@ -36,3 +35,4 @@ Everything is pixel based.  The HTML canvas used by the http://xpoz.org website
 is "first quadrant", i.e. (0, 0) is in the lower left corner.  The default
 canvas size is 1001 by 1001 pixels.  The system is stateful with respect to
 color and font, so specify those before drawing (or accept the defaults).
+See xpoz.h for a little more explicit help.
