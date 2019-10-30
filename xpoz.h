@@ -29,7 +29,7 @@ Browsing:
 
 Impact:
     Some.
-    If #define NOXPOZ preceeds the #include "~/xpoz.h" then
+    If #define NOXPOZ precedes the #include "~/xpoz.h" then
         most of the routines compile as empty calls and your
         optimizer will probably omit them completely.  This means
         you probably do not need a bunch of #ifdef's in your code.
