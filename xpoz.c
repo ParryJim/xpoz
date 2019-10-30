@@ -79,6 +79,8 @@ void endl() {};
 void texthi(int height) {};
 void rect(int x, int y) {};
 void boxGraph(int *data, int length, int width) {};
+void boxGraphBi(int *data, int length, int width,
+                int color1, int cut_bin, int color2) {
 void hticks(int every, int length, int width) {};
 
 #else
