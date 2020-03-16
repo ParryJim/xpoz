@@ -18,15 +18,16 @@ the -iquotes option should be adjusted to indicate your home directory
 or the location you selected to place xpoz.c & xpoz.h.  If you want to
 keep everything in the same directory that will work too but it is less
 flexible in terms of future uses.
-<br/>(3) Create a mount point named "xpoz" and attach the Google cloud bucket "xpoz" to it
-using gcsfuse.  (See https://cloud.google.com/storage/docs/gcs-fuse).  You can use
-instead a bucket that you own.
-<br/>(4) If you copy the demo program into your "scientific" directory then you can make it
-and use a browser to visit xpoz.org where you will see your graphic results.
-In your own scientific code #include "xpoz.h" and use some of the graphical commands
-including view() or page() which will output the display list to the bucket for the website to
-interpret (e.g. http://xpoz.org).  The simple php code for the web page is
-available in this repository.
+<br/>(3) Create a mount point named "xpoz" and attach a bucket that you own to it
+using gcsfuse.  (See https://cloud.google.com/storage/docs/gcs-fuse).
+<br/>(4) If you copy the demo program into your "scientific" directory then you can
+make it and run it.  
+Use a browser to visit xpoz.org where you can enter your bucket name and
+the title "Demo" to see your graphic results.
+<br/>(5) In your own scientific code #include "xpoz.h" and use some of the graphical commands
+including title() and view() or page() which will output the display list to the bucket
+for any website to interpret (e.g. http://xpoz.org).
+The simple php code for the web page is available in this repository.
 
 
 NOTES ABOUT SIMPLE GRAPHICS:
